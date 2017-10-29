@@ -21,6 +21,7 @@ done
 
 
 echo start ssh tunnal
+sudo killall -HUP mDNSResponder #clear all DNS 
 ssh -i ~/.ssh/ronnewvm.pem -o StrictHostKeyChecking=no -D 8123 -C -q -N -o ConnectTimeout=120 ubuntu@$the_ip &
 echo tunnal open
 echo set proxy config
