@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 aws ec2 start-instances --instance-ids i-0193a1e01f23aca23
 the_ip=$(aws ec2 describe-instances | python -c "import sys, json; print json.load(sys.stdin)['Reservations'][0]['Instances'][0]['PublicIpAddress']")
-echo this in echo of aws server ip $the_ip
+echo this is an echo of aws server ip $the_ip
 code=$(aws ec2 describe-instances | python -c "import sys, json; print json.load(sys.stdin)['Reservations'][0]['Instances'][0]['State']['Name']")
 echo the AWS instance is $code
 while [ $code != "running" ]; do 
